@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+*.ipch
+
+thirdpart/*
+x64/*
+Eye3D/x64/*
