@@ -31,6 +31,15 @@
     <ClCompile Include="src\render\TestFont.cpp">
       <Filter>src\render</Filter>
     </ClCompile>
+    <ClCompile Include="src\render\UxSceneManager.cpp">
+      <Filter>src\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\UxBetaParticle.cpp">
+      <Filter>src\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\FileUtil.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\util\RenderUtil.h">
@@ -47,6 +56,15 @@
     </ClInclude>
     <ClInclude Include="src\render\TestFont.h">
       <Filter>src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\UxSceneManager.h">
+      <Filter>src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\UxBetaParticle.h">
+      <Filter>src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\FileUtil.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

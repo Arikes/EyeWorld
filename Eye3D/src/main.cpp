@@ -1,6 +1,6 @@
 #define GLEW_STATIC
 #include "common.h"
-
+#include "render/UxSceneManager.h"
 #include "render/TestImage.h"
 #include "render/TestFont.h"
 
@@ -86,6 +86,7 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
+	UxDeepEye::UxSceneManager *uxScene3D = new UxDeepEye::UxSceneManager();
 	UxDeepEye::CTestImage *testImage = new UxDeepEye::CTestImage();
 	UxDeepEye::CTestFont *testFont = new UxDeepEye::CTestFont();
 
@@ -98,13 +99,13 @@ int main(int argc, char *argv[])
 				quit = true;
 			}
 		}
-
 		glViewport(0, 0, 800, 600);
 		glClearColor(0.0f, 0.0f, 0.0f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
 		testImage->DrawFrame();
 		testFont->DrawFrame();
+		uxScene3D->DrawFrame();
 
 		SDL_GL_SwapWindow(window);
 	}
