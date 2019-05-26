@@ -1,6 +1,7 @@
 #pragma once
 #include "../common.h"
 #include "UxBetaParticle.h"
+#include "../Object.h"
 namespace UxDeepEye {
 	class UxSceneManager {
 	public:
@@ -11,5 +12,6 @@ namespace UxDeepEye {
 	private:
 		//std::vector<>
 		UxBetaParticle * m_betaParticle;
+		Object * testObj;
 	};
 }

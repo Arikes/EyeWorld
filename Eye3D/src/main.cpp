@@ -3,6 +3,9 @@
 #include "render/UxSceneManager.h"
 #include "render/TestImage.h"
 #include "render/TestFont.h"
+#include "render/ImageProcess/BetaImage.h"
+#include "render/ImageProcess/BaseImageProcessor.h"
+#include "render/ImageProcess/GaussBlurFilter.h"
 
 bool quit;
 
@@ -51,8 +54,6 @@ int main(int argc, char *argv[])
 	//std::vector<GLubyte> expanded_data(2 * width * height, 0);
 	//storeTextureData(width, height, bitmap, expanded_data);
 
-
-
 	quit = false;
 
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
@@ -89,6 +90,9 @@ int main(int argc, char *argv[])
 	UxDeepEye::UxSceneManager *uxScene3D = new UxDeepEye::UxSceneManager();
 	UxDeepEye::CTestImage *testImage = new UxDeepEye::CTestImage();
 	UxDeepEye::CTestFont *testFont = new UxDeepEye::CTestFont();
+	UxDeepEye::CBetaImage * betaImage = new UxDeepEye::CBetaImage();
+
+	UxDeepEye::CBaseImageProcessor *imgProcessor = new UxDeepEye::CGaussBlurFilter();
 
 	while (!quit)
 	{
@@ -102,14 +106,19 @@ int main(int argc, char *argv[])
 		glViewport(0, 0, 800, 600);
 		glClearColor(0.0f, 0.0f, 0.0f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		GLuint midTex = betaImage->DrawFrame();
+		midTex = imgProcessor->DrawFrame(midTex, 800, 600);
+		testImage->DrawFrame(midTex);
 		
-		testImage->DrawFrame();
-		testFont->DrawFrame();
-		uxScene3D->DrawFrame();
+		//testFont->DrawFrame();
+		//uxScene3D->DrawFrame();
 
 		SDL_GL_SwapWindow(window);
 	}
-
+	if (uxScene3D!=nullptr){
+		delete uxScene3D;
+		uxScene3D = nullptr;
+	}
 	SDL_DestroyWindow(window);
 	window = NULL;
 

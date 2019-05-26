@@ -123,20 +123,34 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\RefCount.cpp" />
+    <ClCompile Include="src\render\ImageProcess\BaseImageProcessor.cpp" />
+    <ClCompile Include="src\render\ImageProcess\BaseImageRender.cpp" />
+    <ClCompile Include="src\render\ImageProcess\BetaImage.cpp" />
+    <ClCompile Include="src\render\ImageProcess\GaussBlurFilter.cpp" />
     <ClCompile Include="src\render\TestFont.cpp" />
     <ClCompile Include="src\render\TestImage.cpp" />
     <ClCompile Include="src\render\Texture.cpp" />
     <ClCompile Include="src\render\UxBetaParticle.cpp" />
+    <ClCompile Include="src\render\UxFrameBuffer.cpp" />
     <ClCompile Include="src\render\UxSceneManager.cpp" />
     <ClCompile Include="src\util\FileUtil.cpp" />
     <ClCompile Include="src\util\RenderUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\common.h" />
+    <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\RefCount.h" />
+    <ClInclude Include="src\render\ImageProcess\BaseImageProcessor.h" />
+    <ClInclude Include="src\render\ImageProcess\BaseImageRender.h" />
+    <ClInclude Include="src\render\ImageProcess\BetaImage.h" />
+    <ClInclude Include="src\render\ImageProcess\GaussBlurFilter.h" />
     <ClInclude Include="src\render\TestFont.h" />
     <ClInclude Include="src\render\TestImage.h" />
     <ClInclude Include="src\render\Texture.h" />
     <ClInclude Include="src\render\UxBetaParticle.h" />
+    <ClInclude Include="src\render\UxFrameBuffer.h" />
     <ClInclude Include="src\render\UxSceneManager.h" />
     <ClInclude Include="src\util\FileUtil.h" />
     <ClInclude Include="src\util\RenderUtil.h" />

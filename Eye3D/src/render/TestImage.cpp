@@ -7,7 +7,7 @@ namespace UxDeepEye {
 	CTestImage::~CTestImage() {
 	}
 
-	void CTestImage::DrawFrame() {
+	void CTestImage::DrawFrame(GLuint textureID) {
 		if (!_shaderReady) {
 			_programHandle = CRenderUtil::loadProgram(vsh, fsh);
 			CfgShader();
@@ -44,7 +44,8 @@ namespace UxDeepEye {
 		glEnableVertexAttribArray(_texcoordHandle);
 
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, _texture->GetTexture());
+		//glBindTexture(GL_TEXTURE_2D, _texture->GetTexture());
+		glBindTexture(GL_TEXTURE_2D,textureID);
 		glUniform1i(_texcoordHandle,0);
 
 		glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(indices[0]), GL_UNSIGNED_BYTE, indices);

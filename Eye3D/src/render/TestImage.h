@@ -28,7 +28,7 @@ namespace UxDeepEye {
 		CTestImage();
 		virtual ~CTestImage();
 
-		void DrawFrame();
+		void DrawFrame(GLuint textureID);
 
 	private:
 		void CfgShader();
