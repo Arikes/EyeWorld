@@ -8,5 +8,7 @@ namespace UxDeepEye {
 		static GLuint compileShader(GLenum type, const char *shader);
 
 		static GLuint loadTexture(const char *texturePath);
+
+		static GLuint TextureFromFile(const char *path, const std::string &directory, bool gamma = false);
 	};
 };

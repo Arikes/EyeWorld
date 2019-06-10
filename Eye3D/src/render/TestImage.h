@@ -18,7 +18,7 @@ namespace UxDeepEye {
 		"varying vec2 coord;\n"
 		"void main()\n"
 		"{\n"
-		"vec4 color = texture2D(texture,coord);\n"
+		"vec4 color = texture2D(texture,vec2(coord.x,1.0-coord.y));\n"
 		"gl_FragColor = color;\n"
 		"}\n"
 		"";

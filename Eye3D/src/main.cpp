@@ -1,4 +1,4 @@
-#define GLEW_STATIC
+ï»¿#define GLEW_STATIC
 #include "common.h"
 #include "render/UxSceneManager.h"
 #include "render/TestImage.h"
@@ -32,16 +32,15 @@ void storeTextureData(int const width,
 
 int main(int argc, char *argv[])
 {
-
 	//FT_Library library;
 	//if (FT_Init_FreeType(&library))
 	//	exit(0);
 	//FT_Face    m_FT_Face;
-	//if (FT_New_Face(library, "D:/Project/c++/glLFont/font/»ª¿µÉÙÅ®ÎÄ×Ö.ttf", 0, &m_FT_Face))
+	//if (FT_New_Face(library, "D:/Project/c++/glLFont/font/åŽåº·å°‘å¥³æ–‡å­—.ttf", 0, &m_FT_Face))
 	//	exit(0);
 	//FT_Set_Char_Size(m_FT_Face, 20 * 64.0, 20 * 64.0, 0, 0);
 	//FT_Select_Charmap(m_FT_Face, FT_ENCODING_UNICODE);
-	//std::wstring ss = L"ÎÒ°®Äã";
+	//std::wstring ss = L"æˆ‘çˆ±ä½ ";
 	//FT_Load_Char(m_FT_Face, ss[0], FT_LOAD_RENDER | FT_LOAD_NO_HINTING);
 
 	//FT_Glyph glyph;
@@ -89,7 +88,7 @@ int main(int argc, char *argv[])
 	}
 	UxDeepEye::UxSceneManager *uxScene3D = new UxDeepEye::UxSceneManager();
 	UxDeepEye::CTestImage *testImage = new UxDeepEye::CTestImage();
-	UxDeepEye::CTestFont *testFont = new UxDeepEye::CTestFont();
+	//UxDeepEye::CTestFont *testFont = new UxDeepEye::CTestFont();
 	UxDeepEye::CBetaImage * betaImage = new UxDeepEye::CBetaImage();
 
 	UxDeepEye::CBaseImageProcessor *imgProcessor = new UxDeepEye::CGaussBlurFilter();
@@ -103,15 +102,19 @@ int main(int argc, char *argv[])
 				quit = true;
 			}
 		}
-		glViewport(0, 0, 800, 600);
-		glClearColor(0.0f, 0.0f, 0.0f, 1.f);
+		//glViewport(0, 0, 800, 600);
+		//glClearColor(0.0f, 0.0f, 0.0f, 1.f);
+		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		//glViewport(0, 0, 800, 600);
+		glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		GLuint midTex = betaImage->DrawFrame();
-		midTex = imgProcessor->DrawFrame(midTex, 800, 600);
-		testImage->DrawFrame(midTex);
+
+		//GLuint midTex = betaImage->DrawFrame();
+		//midTex = imgProcessor->DrawFrame(midTex, 800, 600);
+		//testImage->DrawFrame(midTex);
 		
 		//testFont->DrawFrame();
-		//uxScene3D->DrawFrame();
+		uxScene3D->DrawFrame();
 
 		SDL_GL_SwapWindow(window);
 	}

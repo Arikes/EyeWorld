@@ -16,11 +16,18 @@ namespace UxDeepEye {
 		}
 
 		glUseProgram(_programHandle);
+		//GLfloat verts[] = {
+		//	-1.0,-1.0,0.0,
+		//	1.0,-1.0,0.0,
+		//	-1.0,1.0,0.0,
+		//	1.0,1.0,0.0
+		//};
+
 		GLfloat verts[] = {
-			-1.0,-1.0,0.0,
-			1.0,-1.0,0.0,
-			-1.0,1.0,0.0,
-			1.0,1.0,0.0
+			-0.5,-0.5,0.0,
+			0.5,-0.5,0.0,
+			-0.5,0.5,0.0,
+			0.5,0.5,0.0
 		};
 
 		GLfloat texcoords[] = {
@@ -44,8 +51,7 @@ namespace UxDeepEye {
 		glEnableVertexAttribArray(_texcoordHandle);
 
 		glActiveTexture(GL_TEXTURE0);
-		//glBindTexture(GL_TEXTURE_2D, _texture->GetTexture());
-		glBindTexture(GL_TEXTURE_2D,textureID);
+		glBindTexture(GL_TEXTURE_2D, _texture->GetTexture());
 		glUniform1i(_texcoordHandle,0);
 
 		glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(indices[0]), GL_UNSIGNED_BYTE, indices);

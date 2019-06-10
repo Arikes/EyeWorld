@@ -84,12 +84,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../thirdpart/include;C:\Users\Aerk\Desktop\ffmpeg\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../thirdpart/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\Aerk\Desktop\ffmpeg\SDL2-2.0.9\VisualC\x64\Debug;../thirdpart/libs/debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;freeglutd.lib;glew32d.lib;FreeImaged.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../thirdpart/libs/debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;freeglutd.lib;glew32d.lib;FreeImaged.lib;freetype.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -142,10 +142,14 @@
     <ClInclude Include="src\common.h" />
     <ClInclude Include="src\Object.h" />
     <ClInclude Include="src\RefCount.h" />
+    <ClInclude Include="src\render\camera.hpp" />
     <ClInclude Include="src\render\ImageProcess\BaseImageProcessor.h" />
     <ClInclude Include="src\render\ImageProcess\BaseImageRender.h" />
     <ClInclude Include="src\render\ImageProcess\BetaImage.h" />
     <ClInclude Include="src\render\ImageProcess\GaussBlurFilter.h" />
+    <ClInclude Include="src\render\Mesh.hpp" />
+    <ClInclude Include="src\render\Model.hpp" />
+    <ClInclude Include="src\render\Shader.hpp" />
     <ClInclude Include="src\render\TestFont.h" />
     <ClInclude Include="src\render\TestImage.h" />
     <ClInclude Include="src\render\Texture.h" />
@@ -154,6 +158,7 @@
     <ClInclude Include="src\render\UxSceneManager.h" />
     <ClInclude Include="src\util\FileUtil.h" />
     <ClInclude Include="src\util\RenderUtil.h" />
+    <ClInclude Include="src\util\stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

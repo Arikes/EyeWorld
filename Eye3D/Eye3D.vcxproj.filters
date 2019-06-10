@@ -111,5 +111,20 @@
     <ClInclude Include="src\render\ImageProcess\GaussBlurFilter.h">
       <Filter>src\render\ImageProcess</Filter>
     </ClInclude>
+    <ClInclude Include="src\render\Shader.hpp">
+      <Filter>src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\Mesh.hpp">
+      <Filter>src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\Model.hpp">
+      <Filter>src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\camera.hpp">
+      <Filter>src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\stb_image.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
