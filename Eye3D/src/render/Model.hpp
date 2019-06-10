@@ -33,11 +33,13 @@ namespace UxDeepEye {
 		{
 			// read file via ASSIMP
 			Assimp::Importer importer;
-			const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
+			//const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
+			const aiScene *scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
 			// check for errors
 			if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) // if is Not Zero
 			{
-				std::cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << std::endl;
+				std::string err = importer.GetErrorString();
+				std::cout << "ERROR::ASSIMP:: " << err << std::endl;
 				return;
 			}
 			// retrieve the directory path of the filepath
@@ -94,21 +96,26 @@ namespace UxDeepEye {
 					// a vertex can contain up to 8 different texture coordinates. We thus make the assumption that we won't 
 					// use models where a vertex can have multiple texture coordinates so we always take the first set (0).
 					vec.x = mesh->mTextureCoords[0][i].x;
-					vec.y = mesh->mTextureCoords[0][i].y;
+					vec.y = 1.0-mesh->mTextureCoords[0][i].y;
 					vertex.TexCoords = vec;
 				}
 				else
 					vertex.TexCoords = glm::vec2(0.0f, 0.0f);
 				// tangent
-				vector.x = mesh->mTangents[i].x;
-				vector.y = mesh->mTangents[i].y;
-				vector.z = mesh->mTangents[i].z;
-				vertex.Tangent = vector;
+				if (mesh->mTangents != NULL) {
+					vector.x = mesh->mTangents[i].x;
+					vector.y = mesh->mTangents[i].y;
+					vector.z = mesh->mTangents[i].z;
+					vertex.Tangent = vector;
+				}
+
 				// bitangent
-				vector.x = mesh->mBitangents[i].x;
-				vector.y = mesh->mBitangents[i].y;
-				vector.z = mesh->mBitangents[i].z;
-				vertex.Bitangent = vector;
+				if (mesh->mBitangents != NULL) {
+					vector.x = mesh->mBitangents[i].x;
+					vector.y = mesh->mBitangents[i].y;
+					vector.z = mesh->mBitangents[i].z;
+					vertex.Bitangent = vector;
+				}
 				vertices.push_back(vertex);
 			}
 			// now wak through each of the mesh's faces (a face is a mesh its triangle) and retrieve the corresponding vertex indices.
@@ -169,10 +176,9 @@ namespace UxDeepEye {
 				{
 					Texture texture;
 					std::string filename = std::string(str.C_Str());
-					//filename = this->directory + '/' + filename;
-					filename = std::string("D:/Engine/EyeWorld/x64/Debug/models/") + filename;
-					texture.id = CRenderUtil::loadTexture(filename.c_str());
-					//texture.id = CRenderUtil::TextureFromFile(str.C_Str(), this->directory);
+					//filename = std::string("D:/Engine/EyeWorld/x64/Debug/models/") + filename;
+					//texture.id = CRenderUtil::loadTexture(filename.c_str());
+					texture.id = CRenderUtil::TextureFromFile(str.C_Str(), this->directory);
 					texture.type = typeName;
 					texture.path = str.C_Str();
 					textures.push_back(texture);

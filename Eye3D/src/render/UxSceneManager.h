@@ -18,5 +18,6 @@ namespace UxDeepEye {
 
 		Model* testModel;
 		Shader *testModelShader;
+		float modelAngle;
 	};
 }
