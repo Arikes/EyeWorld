@@ -176,9 +176,9 @@ namespace UxDeepEye {
 				{
 					Texture texture;
 					std::string filename = std::string(str.C_Str());
-					//filename = std::string("D:/Engine/EyeWorld/x64/Debug/models/") + filename;
-					//texture.id = CRenderUtil::loadTexture(filename.c_str());
-					texture.id = CRenderUtil::TextureFromFile(str.C_Str(), this->directory);
+					filename = std::string("D:/Engine/EyeWorld/x64/Debug/models/") + filename;
+					texture.id = CRenderUtil::loadTexture(filename.c_str());
+					//texture.id = CRenderUtil::TextureFromFile(str.C_Str(), this->directory);
 					texture.type = typeName;
 					texture.path = str.C_Str();
 					textures.push_back(texture);

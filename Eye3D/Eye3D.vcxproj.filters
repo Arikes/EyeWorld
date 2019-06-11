@@ -126,5 +126,8 @@
     <ClInclude Include="src\util\stb_image.h">
       <Filter>src\util</Filter>
     </ClInclude>
+    <ClInclude Include="src\util\ThreadPool.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

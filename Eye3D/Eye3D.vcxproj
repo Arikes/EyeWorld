@@ -159,6 +159,7 @@
     <ClInclude Include="src\util\FileUtil.h" />
     <ClInclude Include="src\util\RenderUtil.h" />
     <ClInclude Include="src\util\stb_image.h" />
+    <ClInclude Include="src\util\ThreadPool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
